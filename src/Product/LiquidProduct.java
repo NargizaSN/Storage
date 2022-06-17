@@ -18,4 +18,11 @@ public class LiquidProduct extends Product {
         this.productVolume = productVolume;
     }
 
+    @Override
+    public String toString() {
+        return "Название: " + super.getName()
+                + " | тип продукта: " + super.getProductType().getDesc()
+                + " | количество коробок: " + super.getBoxVolume()
+                + " | объем единицы: " + productVolume;
+    }
 }

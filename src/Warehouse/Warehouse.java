@@ -9,31 +9,25 @@ public class Warehouse {
 
     private int warehouseId;
     private int volume;
-    private String warehouseName;
     private List<Product> products = new ArrayList<>();
 
     public Warehouse() {
     }
 
-    public Warehouse(int warehouseId, int volume, String name) {
+    public Warehouse(int warehouseId, int volume) {
         this.warehouseId = warehouseId;
         this.volume = volume;
-        this.warehouseName = name;
     }
 
     public int getWarehouseId() {
         return warehouseId;
     }
 
-    public String getWarehouseName() {
-        return this.warehouseName;
-    }
-
     public void setWarehouseId(int warehouseId) {
         this.warehouseId = warehouseId;
     }
 
-    public int getWarehouseVolume() {
+    public int getVolume() {
         return volume;
     }
 
@@ -49,6 +43,10 @@ public class Warehouse {
         this.products.add(product);
     }
 
+    public void removeProduct(int index) {
+        this.products.remove(index);
+    }
+
     public int getProductsVolume() {
         int result = 0;
         for (Product p : products) {
@@ -57,16 +55,17 @@ public class Warehouse {
         return result;
     }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     public int getFreeSpace() {
-        return this.getWarehouseVolume() - this.getProductsVolume();
+        return this.getVolume() - this.getProductsVolume();
     }
 
     @Override
     public String toString() {
-        return "Склад №" + warehouseId + ':' +
-                "\n\t Название склада: " + warehouseName +
-                "\n\t Начальный объем: " + volume +
-                "\n\t Доступный объем: " + getFreeSpace() +
-                '\n';
+        return "Склад номер: " + warehouseId +
+                ", общий объем: " + volume + ", свободный объем: " + this.getFreeSpace();
     }
 }

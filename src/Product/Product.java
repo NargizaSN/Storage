@@ -1,10 +1,13 @@
 package ExamStorage;
 
-public class Product<ProductType> {
+public class Product {
 
     private ProductType productType;
     private String name;
     private int boxVolume;
+
+    public Product() {
+    }
 
     public Product(ProductType productType, String name, int boxVolume) {
         this.productType = productType;

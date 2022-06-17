@@ -16,4 +16,12 @@ public class HardProduct extends Product {
     public void setProductWeight(int productWeight) {
         this.productWeight = productWeight;
     }
+
+    @Override
+    public String toString() {
+        return "Название: " + super.getName()
+                + " | тип продукта: " + super.getProductType().getDesc()
+                + " | количество коробок: " + super.getBoxVolume()
+                + " | масса единицы: " + productWeight;
+    }
 }
